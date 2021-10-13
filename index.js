@@ -1,11 +1,17 @@
 const data = require('./lib/data.js');
 
-console.log(data);
+/* data.create('users', 'petras', { name: 'Petras', age: 99 }, (state, msg) => {
+    console.log(state, msg);
+    console.log('Sekantys zingsniai po bandymo sukurti faila....');
+});
 
-data.create('users', 'petras', { name: 'Petras', age: 99 });
-data.read('users', 'petras');
-data.update();
-data.delete();
+data.create('books', 'du-gaideliai', {text: 'Baltus zirnius kule'}, (state, msg) => {
+    console.log(state, msg);
+    console.log('Sekantys zingsniai po bandymo sukurti faila....');
+}); */
 
-data.create('books', 'du-gaideliai', { text: 'asd' });
-data.read('books', 'du-gaideliai');
+data.read('users', 'petras', (err,content)=>{
+    const fileData = JSON.parse(content)
+    console.log(fileData.name);
+    console.log(fileData.age);
+});
